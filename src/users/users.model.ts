@@ -1,5 +1,6 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { Column, DataType, Model, Table } from "sequelize-typescript";
+import { BelongsTo, Column, DataType, ForeignKey, Model, Table } from "sequelize-typescript";
+import { Team } from "src/teams/teams.model";
 
 interface UserCreationAttrs {
   name: string,
@@ -43,6 +44,13 @@ export class User extends Model<User, UserCreationAttrs> {
     defaultValue: false,
   })
   isAdmin: boolean;
+
+  @ForeignKey(() => User)
+  @Column({ type: DataType.INTEGER })
+  teamId: number;
+
+  @BelongsTo(() => Team)
+  team: Team
 
 }
 
