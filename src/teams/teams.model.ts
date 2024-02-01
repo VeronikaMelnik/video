@@ -35,23 +35,3 @@ export class Team extends Model<Team, TeamCreationAttrs> {
   user: User[];
 
 }
-
-
-
-
-
-// @OneToMany(() => Result, (result) => result.users)
-// results: Result[];
-
-// @OneToMany(() => Title, (title) => title.users)
-// titles: Result[];
-
-// @OneToOne(() => Team, (team) => team.id)
-// @JoinColumn({
-//   name: 'teamId',
-// })
-// team: Team;
-// @Column({
-//   nullable: true,
-// })
-// teamId: number;
