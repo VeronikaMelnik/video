@@ -1,4 +1,5 @@
 import { Column, DataType, HasMany, HasOne, Model, Table } from "sequelize-typescript";
+import { Coach } from "src/coaches/coaches.model";
 import { User } from "src/users/users.model";
 
 interface TeamCreationAttrs {
@@ -33,5 +34,9 @@ export class Team extends Model<Team, TeamCreationAttrs> {
 
   @HasMany(() => User)
   user: User[];
+
+  @HasMany(() => Coach)
+  coaches: Coach[];
+
 
 }

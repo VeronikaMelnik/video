@@ -1,4 +1,6 @@
-import { BelongsTo, BelongsToMany, Column, DataType, ForeignKey, Model, Table } from "sequelize-typescript";
+import { BelongsTo, BelongsToMany, Column, DataType, ForeignKey, HasOne, Model, Table } from "sequelize-typescript";
+import { Clerk } from "src/clerks/clerks.model";
+import { Coach } from "src/coaches/coaches.model";
 
 interface HumanCreationAttrs {
   name: string;
@@ -15,5 +17,11 @@ export class Human extends Model<Human, HumanCreationAttrs> {
 
   @Column({ type: DataType.STRING })
   image: string;
+
+  @HasOne(() => Clerk)
+  clerk: Clerk;
+
+  @HasOne(() => Coach)
+  coach: Coach;
 
 }

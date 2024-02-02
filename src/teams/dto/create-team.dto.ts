@@ -1,4 +1,4 @@
-import { IsString, Length, IsEmail } from "class-validator";
+import { IsString } from "class-validator";
 
 export class CreateTeamDto {
   @IsString({ message: 'Должно быть строкой' })

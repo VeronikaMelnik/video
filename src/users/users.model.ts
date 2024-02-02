@@ -1,6 +1,7 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { BelongsTo, Column, DataType, ForeignKey, Model, Table } from "sequelize-typescript";
+import { BelongsTo, Column, DataType, ForeignKey, HasMany, Model, Table } from "sequelize-typescript";
 import { Team } from "src/teams/teams.model";
+import { Title } from "src/titles/titles.model";
 
 interface UserCreationAttrs {
   name: string,
@@ -53,5 +54,8 @@ export class User extends Model<User, UserCreationAttrs> {
 
   @BelongsTo(() => Team)
   team: Team
+
+  @HasMany(() => Title)
+  titles: Title[];
 
 }
